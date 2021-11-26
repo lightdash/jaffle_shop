@@ -1,29 +1,6 @@
 version: 2
 
 models:
-  - name: customers
-    description: This table has basic information about a customer, as well as some derived facts based on a customer's orders
-
-    columns:
-      - name: customer_id
-        description: This is a unique identifier for a customer
-        tests:
-          - unique
-          - not_null
-        meta:
-          metrics:
-            unique_customer_count:
-              type: count_distinct
-
-      - name: first_name
-        description: Customer's first name. PII.
-
-      - name: last_name
-        description: Customer's last name. PII.
-
-      - name: created
-        description: Timestamp (UTC) when customer was created
-
   - name: orders
     description: This table has basic information about orders, as well as some derived facts based on payments
 
@@ -39,10 +16,6 @@ models:
           - unique
           - not_null
         description: This is a unique identifier for an order
-        meta:
-          metrics:
-            unique_order_count:
-              type: count_distinct
 
       - name: is_completed
         description: Boolean indicating if status is completed
@@ -98,36 +71,3 @@ models:
         description: Amount of the order (AUD) paid for by gift card
         tests:
           - not_null
-
-  - name: payments
-    description: This table has information about individual payments
-
-    meta:
-      joins:
-        - join: orders
-          sql_on: ${orders.order_id} = ${payments.order_id}
-        - join: customers
-          sql_on: ${customers.customer_id} = ${orders.customer_id}
-
-    columns:
-      - name: payment_id
-        description: This is a unique identifier for a payment
-        meta:
-          metrics:
-            unique_payment_count:
-              type: count_distinct
-              description: count of all payments
-
-      - name: order_id
-        description: Foreign key to the orders table
-
-      - name: payment_method
-        description: Method of payment used, for example credit card
-
-      - name: amount
-        description: Total amount (AUD) of the individual payment
-        meta:
-          metrics:
-            total_revenue:
-              type: sum
-              description: Sum of all payments
