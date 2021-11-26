@@ -16,10 +16,6 @@ models:
           - unique
           - not_null
         description: This is a unique identifier for an order
-        meta:
-          metrics:
-            total_order_count:
-              type: count_distinct
 
       - name: is_completed
         description: Boolean indicating if status is completed
@@ -34,6 +30,12 @@ models:
 
       - name: order_date
         description: Date (UTC) that the order was placed
+        meta:
+          metrics:
+            date_of_first_order:
+              type: min
+            date_of_most_recent_order:
+              type: max
 
       - name: status
         description: '{{ doc("orders_status") }}'
