@@ -16,6 +16,10 @@ models:
           - unique
           - not_null
         description: This is a unique identifier for an order
+        meta:
+          metrics:
+            total_order_count:
+              type: count_distinct
 
       - name: is_completed
         description: Boolean indicating if status is completed
