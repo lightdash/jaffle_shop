@@ -174,7 +174,7 @@ models:
         meta:
           dimension:
             hidden: true
-  - name: moo
+  - name: payments
     description: This table has information about individual payments
     meta:
       joins:

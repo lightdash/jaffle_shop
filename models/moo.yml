@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: users
+  - name: moo
     meta: 
       sql_filter: 'customer_id = ${ld.attr.customer_id}'
     columns:
