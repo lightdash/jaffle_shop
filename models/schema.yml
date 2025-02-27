@@ -3,7 +3,7 @@ models:
   - name: customers
     description: >-
       This table has basic information about a customer, as well as some derived
-      facts based on a customer's orders. It is joined to the orders table!
+      facts based on a customer's orders. It is joined to the orders table
     columns:
       - name: customer_id
         description: This is a unique identifier for a customer
