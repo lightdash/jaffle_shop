@@ -61,6 +61,8 @@ models:
             type: number
             group_label: 'Events'
           metrics:
+            new_metric_in_brahc:
+              type: sum 
             in_gbp:
               type: sum
               format: 'gbp'
