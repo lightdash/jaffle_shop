@@ -1,0 +1,13 @@
+jaffle_shop:
+  outputs:
+    dev:
+      database: postgres
+      host: localhost
+      user: postgres
+      pass: password
+      port: 5432
+      schema: jaffle
+      threads: 1
+      type: postgres
+      sslmode: disable
+  target: dev
