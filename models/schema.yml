@@ -82,7 +82,7 @@ models:
           metrics:
             unique_order_count:
               type: count_distinct
-      - name: is_completed_ex
+      - name: is_completed
         description: Boolean indicating if status is completed
         meta:
           metrics:
@@ -91,6 +91,18 @@ models:
               format: percent
               round: 1
               sql: CASE WHEN ${is_completed} THEN 1 ELSE 0 END
+              show_underlying_values:
+                - amount
+                - customers.first_name
+      - name: is_shipped
+        description: Boolean indicating if status is shipped or completed
+        meta: 
+          metrics: 
+            shipped_rate: 
+              type: average
+              format: percent
+              round: 1
+              sql: CASE WHEN ${is_shipped} THEN 1 ELSE 0 END
               show_underlying_values:
                 - amount
                 - customers.first_name
