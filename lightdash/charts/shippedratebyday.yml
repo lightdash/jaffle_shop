@@ -1,0 +1,45 @@
+name: ShippedRateByDay
+description: null
+tableName: orders
+updatedAt: "2025-07-21T11:39:30.543Z"
+metricQuery:
+  exploreName: orders
+  dimensions:
+    - orders_order_date_day
+  metrics:
+    - orders_shipped_rate
+  filters: {}
+  sorts:
+    - fieldId: orders_order_date_day
+      descending: true
+  limit: 500
+  metricOverrides: {}
+  tableCalculations: []
+  additionalMetrics: []
+  customDimensions: []
+chartConfig:
+  type: cartesian
+  config:
+    layout:
+      xField: orders_order_date_day
+      yField:
+        - orders_shipped_rate
+      flipAxes: false
+    eChartsConfig:
+      series:
+        - type: line
+          encode:
+            xRef:
+              field: orders_order_date_day
+            yRef:
+              field: orders_shipped_rate
+          yAxisIndex: 0
+          isFilteredOut: false
+slug: shippedratebyday
+tableConfig:
+  columnOrder:
+    - orders_order_date_day
+    - orders_shipped_rate
+spaceSlug: shared
+version: 1
+downloadedAt: "2025-07-25T23:46:56.490Z"
