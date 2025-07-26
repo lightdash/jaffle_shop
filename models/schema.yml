@@ -83,7 +83,7 @@ models:
             unique_order_count:
               type: count_distinct
 
-      - name: is_completed_ex
+      - name: is_completed
         description: Boolean indicating if status is completed
         meta:
           metrics:
