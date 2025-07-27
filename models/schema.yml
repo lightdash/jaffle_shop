@@ -88,7 +88,7 @@ models:
         meta:
           metrics:
             fulfillment_rate:
-              type: average
+              type: average_ex
               format: percent
               round: 1
               sql: CASE WHEN ${is_completed} THEN 1 ELSE 0 END
