@@ -1,0 +1,43 @@
+name: CountByWeek
+description: null
+tableName: events
+updatedAt: "2025-07-13T01:13:24.344Z"
+metricQuery:
+  exploreName: events
+  dimensions:
+    - events_date_week
+  metrics:
+    - events_count
+  filters: {}
+  sorts: []
+  limit: 500
+  metricOverrides: {}
+  tableCalculations: []
+  additionalMetrics: []
+  customDimensions: []
+chartConfig:
+  type: cartesian
+  config:
+    layout:
+      xField: events_date_week
+      yField:
+        - events_count
+      flipAxes: false
+    eChartsConfig:
+      series:
+        - type: line
+          encode:
+            xRef:
+              field: events_date_week
+            yRef:
+              field: events_count
+          yAxisIndex: 0
+          isFilteredOut: false
+slug: countbyday
+tableConfig:
+  columnOrder:
+    - events_date_week
+    - events_count
+spaceSlug: shared
+version: 1
+downloadedAt: "2025-07-25T23:46:56.490Z"

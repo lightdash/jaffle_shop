@@ -37,7 +37,6 @@ final as (
         orders.order_date,
         orders.status,
         case when status = 'completed' then TRUE else FALSE end AS is_completed,
-
         {% for payment_method in payment_methods -%}
 
         order_payments.{{ payment_method }}_amount,
