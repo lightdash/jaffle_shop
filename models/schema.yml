@@ -19,7 +19,8 @@ models:
               - label: "URL from value"
                 url: "https://example.com/company/${value.formatted | url_encode }"
               - label: "URL from row value"
-                url: "https://example.com/company/${row.customers.customer_id.raw | url_encode }"
+                url: "https://example.com/company/${row.customers.customer_id.raw | url_encode
+                  }"
               - label: "Invalid URL with bad reference"
                 url: "https://example.com/company/${row.customer_id.raw | url_encode }"
       - name: last_name
@@ -192,8 +193,22 @@ models:
               description: count of all payments
       - name: order_id
         description: Foreign key to the orders table
+        meta:
+          metrics:
+            order_id_sum_of_order_id:
+              label: Sum of Order id
+              description: "Sum of Order id on the table Payments "
+              type: sum
+              filters: []
       - name: payment_method
         description: Method of payment used, for example credit card
+        meta:
+          metrics:
+            payment_method_count_distinct_of_payment_method:
+              label: Count distinct of Payment method
+              description: "Count distinct of Payment method on the table Payments "
+              type: count_distinct
+              filters: []
       - name: amount
         description: Total amount (AUD) of the individual payment
         meta:
