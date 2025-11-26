@@ -6,7 +6,7 @@ models:
       facts based on a customer's orders
     columns:
       - name: customer_id
-        description: This is a unique identifier for a customer
+        description: Unique identifier for a customer
         tests:
           - unique
           - not_null
@@ -178,10 +178,8 @@ models:
     description: This table has information about individual payments
     meta:
       joins:
-        - join: orders
-          sql_on: ${orders.order_id} = ${payments.order_id}
-        - join: customers
-          sql_on: ${customers.customer_id} = ${orders.customer_id}
+        - join:  customers
+          sql_on: dddd
     columns:
       - name: payment_id
         description: This is a unique identifier for a payment
