@@ -10,7 +10,7 @@ models:
         tests:
           - unique
           - not_null
-      - name: first_name
+      - name: first_last_name
         description: Customer's first name. PII.
         meta:
           dimension:
